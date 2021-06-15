@@ -4,9 +4,9 @@
         "post0": {
             "title": "Title",
             "content": "from fastai.vision.all import * from fastai.vision.widgets import * . path = Path() learn_inf = load_learner(path/&#39;export.pkl&#39;,cpu=True) btn_upload=widgets.FileUpload() out_pl=widgets.Output() lbl_pred=widgets.Label() btn_run = widgets.Button(description=&#39;Classify&#39;) . def on_click_classify(img): img=PILImage.create(btn_upload.data[-1]) with out_pl:display(img.to_thumb(128,128)) preds,pred_idx,probs=learn_inf.predict(img) lbl_pred.value=f&#39;preds:{preds},prob:{probs[pred_idx]}&#39; . btn_run.on_click(on_click_classify) . display(VBox([widgets.Label(&#39;tell me the animal&#39;),btn_upload,out_pl,lbl_pred,btn_run])) .",
-            "url": "https://nitishhrms.github.io/Deploying-on-web-server/2021/06/13/app_voila_2.html",
-            "relUrl": "/2021/06/13/app_voila_2.html",
-            "date": " • Jun 13, 2021"
+            "url": "https://nitishhrms.github.io/Deploying-on-web-server/2021/06/14/app_voila_2.html",
+            "relUrl": "/2021/06/14/app_voila_2.html",
+            "date": " • Jun 14, 2021"
         }
         
     

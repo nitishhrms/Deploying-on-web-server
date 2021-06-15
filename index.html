@@ -67,11 +67,46 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p>Deploying machine learning model to live server is not a easy task. <a href="https://github.com/fastai/fastpages">fastpages</a>, An easy to use blogging platform with extra features for Jupyter Notebooks.</p>
+        <div class="home"><p>Deploying machine learning model to live server is not a easy task. <a href="https://github.com/fastai/fastpages">fastpages</a>,For deploying in most convenient way and easy way,firstly we should download voila.
+For downloading voila we should use command  <strong>pip install voila</strong>.In this you don’t have to write other file like <strong>index.html</strong> like we write in other approaches and use framework like flask.We will make use of ipywidgets,
+this library that we use to create gui in our jupyter noetbook,we does not have to write script like <strong>index.html</strong> for front end.So you can check documentation of ipywidgets,it also supports vue js and 
+angular js.So write functions as i have written in my <a href="https://nitishhrms.github.io/Deploying-on-web-server/2021/06/13/app_voila_2.html">jupyter notebook</a>,So firstly i have imported libraries,
+then **path = Path()
+learn_inf = load_learner(path/’export.pkl’,cpu=True)
+btn_upload=widgets.FileUpload()
+out_pl=widgets.Output()
+lbl_pred=widgets.Label()
+btn_run = widgets.Button(description=’Classify’)</p>
 
-<p><img src="/Deploying-on-web-server/images/diagram.png" alt="" title="https://github.com/fastai/fastpages" /></p>
+<p>**
+this whole above code  is creating a gui that creates a upload button that upload images and classify button that classify images of lion tiger elephant and rhinocores.Load_learner loads the model that is train to classify it.
+lbl_pred gives us the label and probabilities of prediction and out_pl represent the image that have been uploaded.
+** def on_click_classify(img):
+    img=PILImage.create(btn_upload.data[-1])
+    with out_pl:display(img.to_thumb(128,128))
+    preds,pred_idx,probs=learn_inf.predict(img)
+    lbl_pred.value=f’preds:{preds},prob:{probs[pred_idx]}’</p>
 
-<p><a href="https://github.com/fastai/fastpages">fastpages</a> automates the process of creating blog posts via GitHub Actions, so you don’t have to fuss with conversion scripts.  A full list of features can be found on <a href="https://github.com/fastai/fastpages">GitHub</a>.</p>
+<p>btn_run.on_click(on_click_classify)</p>
+
+<p>**
+This is the event or response of clicking the button that happens when we click the button classify.</p>
+
+<p>**display(VBox([widgets.Label(‘tell me the animal’),btn_upload,out_pl,lbl_pred,btn_run]))”
+After that we gather all the things and store it in VBOX,which we run.</p>
+
+<p>After that replace /notebooks/ word in link with “https://n7qtj37xqh.clg07azjl.paperspacegradient.com/notebooks/intro_temp.ipynb” 
+this with /voila/render/.After that  you will see your GUI is running on localhost(image below) (like that it was showing in jupyter notebbok output).After that upload your notebook on git hub and create file “requirements.txt” 
+on github and copy all the libraries that we have use in requirements.txt and  your model weights as while deploying to live server it will run your whole code on virtual machine.</p>
+
+<p><img src="/Deploying-on-web-server/images/diagram1.png" alt="" title="https://github.com/fastai/fastpages" /></p>
+
+<p>After that you go to <a href="https://mybinder.org/">binder</a> and select options that are given in the image and select it.You will get the link generated from that and know you can
+share with your friends.And can run it your model on live server also.It will take some time around 5 to 10 minutes,as it runs your whole model.</p>
+
+<p><img src="/Deploying-on-web-server/images/diagram2.png" alt="" title="https://github.com/fastai/fastpages" /></p>
+
+<p>Now after that try to explore different functions of widgets library and try to use vue js,html,css to  improve your frontend so it looks good.</p>
 
 <p>You can edit the <code class="language-plaintext highlighter-rouge">index.html</code> file to change this content.</p>
 
@@ -96,10 +131,10 @@ window.onload = wrap_img;
    <!-- Assemble final sorted posts array -->
   
   <ul class="post-list"><li><h3>
-    <a class="post-link" href="/Deploying-on-web-server/2021/06/13/app_voila_2.html">
+    <a class="post-link" href="/Deploying-on-web-server/2021/06/14/app_voila_2.html">
     Title
     </a>
-</h3><p class="post-meta">Jun 13, 2021</p>
+</h3><p class="post-meta">Jun 14, 2021</p>
 </li><li><h3>
     <a class="post-link" href="/Deploying-on-web-server/jupyter/2020/02/20/test.html">
     Fastpages Notebook Blog Post
