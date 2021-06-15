@@ -8,28 +8,35 @@ Deploying machine learning model to live server is not a easy task. [fastpages](
 For downloading voila we should use command  **pip install voila**.In this you don't have to write other file like **index.html** like we write in other approaches and use framework like flask.We will make use of ipywidgets,
 this library that we use to create gui in our jupyter noetbook,we does not have to write script like **index.html** for front end.So you can check documentation of ipywidgets,it also supports vue js and 
 angular js.So write functions as i have written in my [jupyter notebook](https://nitishhrms.github.io/Deploying-on-web-server/2021/06/13/app_voila_2.html),So firstly i have imported libraries,
-then **path = Path()
+then 
+
+`path = Path()
 learn_inf = load_learner(path/'export.pkl',cpu=True)
 btn_upload=widgets.FileUpload()
 out_pl=widgets.Output()
 lbl_pred=widgets.Label()
-btn_run = widgets.Button(description='Classify')
+btn_run = widgets.Button(description='Classify')   `
 
-**
+
+
 this whole above code  is creating a gui that creates a upload button that upload images and classify button that classify images of lion tiger elephant and rhinocores.Load_learner loads the model that is train to classify it.
 lbl_pred gives us the label and probabilities of prediction and out_pl represent the image that have been uploaded.
-** def on_click_classify(img):
+
+` def on_click_classify(img):
     img=PILImage.create(btn_upload.data[-1])
     with out_pl:display(img.to_thumb(128,128))
     preds,pred_idx,probs=learn_inf.predict(img)
     lbl_pred.value=f'preds:{preds},prob:{probs[pred_idx]}'
 
-btn_run.on_click(on_click_classify)
+btn_run.on_click(on_click_classify) `
 
-**
+
+
 This is the event or response of clicking the button that happens when we click the button classify.
 
-**display(VBox([widgets.Label('tell me the animal'),btn_upload,out_pl,lbl_pred,btn_run]))"
+'display(VBox([widgets.Label('tell me the animal'),btn_upload,out_pl,lbl_pred,btn_run]))'
+
+
 After that we gather all the things and store it in VBOX,which we run.
 
 After that replace /notebooks/ word in link with "https://n7qtj37xqh.clg07azjl.paperspacegradient.com/notebooks/intro_temp.ipynb" 
@@ -38,13 +45,15 @@ on github and copy all the libraries that we have use in requirements.txt and  y
 
 ![]({{site.baseurl}}/images/diagram1.png "https://github.com/fastai/fastpages")
 
+
 After that you go to [binder](https://mybinder.org/) and select options that are given in the image and select it.You will get the link generated from that and know you can
 share with your friends.And can run it your model on live server also.It will take some time around 5 to 10 minutes,as it runs your whole model.
 
 ![]({{site.baseurl}}/images/diagram2.jpeg "https://github.com/fastai/fastpages")
 
+
 Now after that try to explore different functions of widgets library and try to use vue js,html,css to  improve your frontend so it looks good.
 
-You can edit the `index.html` file to change this content.
+
 
 # Posts
