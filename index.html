@@ -83,7 +83,7 @@ btn_run = widgets.Button(description='Classify')   </code></p>
 <p>this whole above code  is creating a gui that creates a upload button that upload images and classify button that classify images of lion tiger elephant and rhinocores.Load_learner loads the model that is train to classify it.
 lbl_pred gives us the label and probabilities of prediction and out_pl represent the image that have been uploaded.</p>
 
-<p>` def on_click_classify(img):
+<p>`   def on_click_classify(img):
     img=PILImage.create(btn_upload.data[-1])
     with out_pl:display(img.to_thumb(128,128))
     preds,pred_idx,probs=learn_inf.predict(img)
@@ -93,7 +93,7 @@ lbl_pred gives us the label and probabilities of prediction and out_pl represent
 
 <p>This is the event or response of clicking the button that happens when we click the button classify.</p>
 
-<p>‘display(VBox([widgets.Label(‘tell me the animal’),btn_upload,out_pl,lbl_pred,btn_run]))’</p>
+<p>`   display(VBox([widgets.Label(‘tell me the animal’),btn_upload,out_pl,lbl_pred,btn_run])) `</p>
 
 <p>After that we gather all the things and store it in VBOX,which we run.</p>
 
